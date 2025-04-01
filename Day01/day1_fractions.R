@@ -11,6 +11,11 @@ font_add('fa6-brands',
 
 showtext_auto(enable = TRUE)
 
+
+# Data --------------------------------------------------------------------
+
+
+
 df <- data.frame(
   year = c(2000,2002,2004,2006,2008,2010,2012,2014,2016,2018,2020,2022),
   total_pop = c(282216952,288125973,293638158,299398484,304059724,308745538,
@@ -39,11 +44,18 @@ cap_text <- str_glue("Graphic: {author} | {bluesky} skasowitz.bsky.social | {lin
                      Source: {citation}") 
 
 
+# Annotation --------------------------------------------------------------
+
+
 method_annotation <- 
   tribble(
     ~x, ~y, ~label,
     2016, 0.9, "2016: Introduction of a new methodology for estimating the population on the community water system."
   )
+
+
+# Create chart ------------------------------------------------------------
+
 
 df |>
   pivot_longer(starts_with('perc')) |>
